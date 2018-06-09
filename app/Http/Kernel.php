@@ -61,6 +61,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
         'role'        =>\Caffeinated\Shinobi\Middlewere\UserHasRole::class,
-        'permission'  =>\Caffeinated\Shinobi\Middlewere\UserHasRole::class,
+        'permission'  =>\Caffeinated\Shinobi\Middlewere\UserHasPermission::class,
     ];
 }
