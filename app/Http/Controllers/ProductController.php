@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -35,9 +35,14 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //Es el metodo que se ejecuta cuando se le da guardar al formulario
     public function store(Request $request)
     {
-        //
+        $product = Product::create('$request->all');
+
+        return redirect()->route('products.edit', $product->id)
+        ->with('info', 'Producto guardado con éxito');
     }
 
     /**
@@ -48,7 +53,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -59,7 +64,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+      //dd($product->id);
+      return view('products.edit', compact('product'));
     }
 
     /**
@@ -71,7 +77,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+
+        return redirect()->route('products.edit', $product->id)
+        ->with('info', 'Producto actualizado con éxito');
     }
 
     /**
@@ -82,6 +91,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return back()->with('info', 'Eliminado correctamente');
     }
 }
