@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,11 +13,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate();
+        $name = $request->get('name');
 
-        return view('users.index', compact('users'));
+        $users = User::orderBy('id', 'DESC')
+          ->name($name)
+          ->paginate(4);
+
+        return view('users.index', compact('users', 'name'));
     }
 
     /**
@@ -39,7 +44,12 @@ class UserController extends Controller
     public function edit(User $user)
     {
       //dd($user->id);
-      return view('users.edit', compact('user'));
+
+      //Como necesito tener disponibles los roles procedo a crear una
+      //variable y descargar todo lo que haya en la tabla.
+      $roles = Role::get();
+
+      return view('users.edit', compact('user', 'roles'));
     }
 
     /**
@@ -51,7 +61,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+      //ojo solo se tomarán en cuenta los campos que esten en user.php fillable
         $user->update($request->all());
+
+        $user->roles()->sync($request->get('roles'));
+
+
 
         return redirect()->route('users.edit', $user->id)
         ->with('info', 'Usuario actualizado con éxito');

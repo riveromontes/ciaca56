@@ -39,7 +39,7 @@ class ProductController extends Controller
      //Es el metodo que se ejecuta cuando se le da guardar al formulario
     public function store(Request $request)
     {
-        $product = Product::create('$request->all');
+        $product = Product::create($request->all());
 
         return redirect()->route('products.edit', $product->id)
         ->with('info', 'Producto guardado con éxito');

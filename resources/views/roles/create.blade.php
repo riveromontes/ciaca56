@@ -5,10 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Usuario</div>
+                <div class="card-header">Rol</div>
+
                 <div class="card-body">
-                  <p><strong>Nombre</strong> {{ $user->name }}</p>
-                  <p><strong>Email</strong> {{ $user->email }}</p>
+                  {!! Form::open(['route' => 'roles.store']) !!}
+
+                    @include('roles.partials.form')
+
+                  {!! Form::close() !!}
                 </div>
             </div>
         </div>
