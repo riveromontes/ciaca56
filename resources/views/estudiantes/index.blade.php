@@ -7,10 +7,19 @@
             <div class="card">
               <div class="page-header">
                 <h3>
-                  Filtrar usuarios
-                  {{ Form::open(['route' => 'users.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
+                  Filtrar estudiantes
+                  {{ Form::open(['route' => 'estudiantes.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
                   <div class="form-group">
-                    {{ Form::text('name', $name, ['class' => 'form-control', 'placeholder' => 'Nombre']) }}
+                    {{ Form::text('nombre', $nombre, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Nombre']) }}
+                  </div>
+                  <div class="form-group">
+                    {{ Form::text('apellido', $apellido, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Apellido']) }}
+                  </div>
+                  <div class="form-group">
+                    {{ Form::text('cedula', $cedula, ['class' => 'form-control', 'size' => '8', 'placeholder' => 'Cédula']) }}
+                  </div>
+                  <div class="form-group">
+                    {{ Form::text('pasaporte', $pasaporte, ['class' => 'form-control', 'size' => '9', 'placeholder' => 'Pasaporte']) }}
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn btn-default">
@@ -21,41 +30,47 @@
                 </h3>
               </div>
                 <div class="card-header">
-                    Usuarios
+                    Estudiantes
                 </div>
                 <div class="card-body">
-                  <table class="table table-striped table-hover">
+                  <table class="table table-striped table-hover table-responsive">
                     <thead>
                       <tr>
                         <th width="10px">ID</th>
-                        <th>Nombres</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cédula</th>
+                        <th>Pasaporte</th>
                         <th colspan="3">&nbsp;</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach($users as $user)
+                      @foreach($estudiantes as $estudiante)
                       <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
+                        <td>{{ $estudiante->id }}</td>
+                        <td>{{ $estudiante->nombre }}</td>
+                        <td>{{ $estudiante->apellido }}</td>
+                        <td>{{ $estudiante->cedula }}</td>
+                        <td>{{ $estudiante->pasaporte }}</td>
                         <td width="10px">
-                          @can('users.show')
-                            <a href="{{ route('users.show', $user->id) }}"
+                          @can('estudiantes.show')
+                            <a href="{{ route('estudiantes.show', $estudiante->id) }}"
                               class="btn btn-sm btn-light">
                                 Ver
                             </a>
                           @endcan
                         </td>
                         <td width="10px">
-                          @can('users.edit')
-                            <a href="{{ route('users.edit', $user->id) }}"
+                          @can('estudiantes.edit')
+                            <a href="{{ route('estudiantes.edit', $estudiante->id) }}"
                               class="btn btn-sm btn-light">
                                 Editar
                               </a>
                           @endcan
                         </td>
                         <td width="10px">
-                          @can('users.destroy')
-                            {!! Form::open(['route' => ['users.destroy', $user->id],
+                          @can('estudiantes.destroy')
+                            {!! Form::open(['route' => ['estudiantes.destroy', $estudiante->id],
                             'method' => 'DELETE']) !!}
                               <button class="btn btn-sm btn-danger">
                                 Eliminar
@@ -67,7 +82,7 @@
                       @endforeach
                     </tbody>
                   </table>
-                  {{ $users->render() }}
+                  {{ $estudiantes->render() }}
                 </div>
             </div>
         </div>

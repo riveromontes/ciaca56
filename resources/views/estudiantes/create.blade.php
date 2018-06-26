@@ -5,13 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Rol</div>
+                <div class="card-header">Usuario</div>
 
                 <div class="card-body">
-                  {!! Form::model($role, ['route' => ['roles.update', $role->id],
-                  'method' => 'PUT']) !!}
+                  {!! Form::open(['route' => 'users.store']) !!}
 
-                    @include('roles.partials.form')
+                    @include('users.partials.form')
 
                   {!! Form::close() !!}
                 </div>

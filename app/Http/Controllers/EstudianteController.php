@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Estudiante;
+use App\User;
+use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
 class EstudianteController extends Controller
@@ -12,9 +14,21 @@ class EstudianteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+      $nombre = $request->get('nombre');
+      $apellido = $request->get('apellido');
+      $cedula = $request->get('cedula');
+      $pasaporte = $request->get('pasaporte');
+
+      $estudiantes = Estudiante::orderBy('id', 'DESC')
+        ->nombre($nombre)
+        ->apellido($apellido)
+        ->cedula($cedula)
+        ->pasaporte($pasaporte)
+        ->paginate();
+
+      return view('estudiantes.index', compact('estudiantes', ['nombre', 'apellido', 'cedula', 'pasaporte']));
     }
 
     /**
@@ -46,7 +60,9 @@ class EstudianteController extends Controller
      */
     public function show(Estudiante $estudiante)
     {
-        //
+        $user = User::find($estudiante->user_id);
+
+        return view('estudiantes.show', compact('estudiante', 'user'));
     }
 
     /**

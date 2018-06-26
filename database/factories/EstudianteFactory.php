@@ -3,11 +3,20 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Estudiante::class, function (Faker $faker) {
+
+    $aux = [];
+    $usuarios = App\User::get(['id']);
+
+    foreach($usuarios as $k => $v)
+    {
+      $aux[] = $v->id;
+    }
     return [
+          'user_id' => $faker->unique()->randomElement($aux),
           'nombre' => $faker->firstName,
           'apellido' => $faker->lastName,
           'cedula' => $faker->unique()->numerify('V########'),
-          'pasaporte' => $faker->unique()->asciify('**********'),
+          'pasaporte' => $faker->unique()->numerify('##########'),
           'f_nacimiento' => $faker->date($format = 'Y-m-d', $max = 'now'),
           'peso' => $faker->numberBetween(40,120),
           'estatura' => 1+(1/$faker->randomDigitNotNull),

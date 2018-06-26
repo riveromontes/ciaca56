@@ -19,7 +19,7 @@ class UserController extends Controller
 
         $users = User::orderBy('id', 'DESC')
           ->name($name)
-          ->paginate(4);
+          ->paginate();
 
         return view('users.index', compact('users', 'name'));
     }

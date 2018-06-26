@@ -97,6 +97,30 @@ Route::middleware(['auth'])->group(function(){
         ->middleware('permission:users.edit');
 
 
+        //7 rutas para estudiantes
+        //Route::post(RUTA)->name(NOMBRE_DE_RUTA)
+          //->middleware(PERMISO);
+        Route::post('estudiantes/store', 'EstudianteController@store')->name('estudiantes.store')
+          ->middleware('permission:estudiantes.create');
+
+        Route::get('estudiantes', 'EstudianteController@index')->name('estudiantes.index')
+          ->middleware('permission:estudiantes.index');
+
+        Route::get('estudiantes/create', 'EstudianteController@create')->name('estudiantes.create')
+          ->middleware('permission:estudiantes.create');
+
+      //abajo entre llaves estamos pasando un parametro que será esperado
+        Route::put('estudiantes/{estudiante}', 'EstudianteController@update')->name('estudiantes.update')
+          ->middleware('permission:estudiantes.edit');
+
+        Route::get('estudiantes/{estudiante}', 'EstudianteController@show')->name('estudiantes.show')
+          ->middleware('permission:estudiantes.show');
+
+        Route::delete('estudiantes/{estudiante}', 'EstudianteController@destroy')->name('estudiantes.destroy')
+          ->middleware('permission:products.destroy');
+
+        Route::get('estudiantes/{estudiante}/edit', 'EstudianteController@edit')->name('estudiantes.edit')
+          ->middleware('permission:estudiantes.edit');
 
 
 

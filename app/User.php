@@ -29,11 +29,18 @@ class User extends Authenticatable
     ];
 
     //Query Scope
+    //para el filtro de búsqueda
     public function scopename($query, $name)
     {
       if($name)
         return $query->where('name', 'LIKE', "%$name%");
 
+    }
+
+    //Para la relación de usuario con EstudiantesTableSeeder
+    public function estudiante()
+    {
+      return $this->hasOne(Estudiante::class);
     }
 
 }
