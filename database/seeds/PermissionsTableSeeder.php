@@ -49,7 +49,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
           'name'         =>'Creación de roles',
           'slug'         =>'roles.create',
-          'description'  =>'Crear cualquier dato de un rol del sistema',
+          'description'  =>'Crear los datos de un rol del sistema',
         ]);
         Permission::create([
           'name'         =>'Edición de roles',
@@ -77,7 +77,7 @@ class PermissionsTableSeeder extends Seeder
         Permission::create([
           'name'         =>'Creación de productos',
           'slug'         =>'products.create',
-          'description'  =>'Crear cualquier dato de un producto del sistema',
+          'description'  =>'Crear los datos de un producto del sistema',
         ]);
         Permission::create([
           'name'         =>'Edición de productos',
@@ -88,6 +88,34 @@ class PermissionsTableSeeder extends Seeder
           'name'         =>'Eliminar producto',
           'slug'         =>'products.destroy',
           'description'  =>'Eliminar cualquier producto del sistema',
+        ]);
+
+
+        //Los 5 Permisos necesarios para Estudiantes
+        Permission::create([
+          'name'         =>'Navegar estudiantes',
+          'slug'         =>'estudiantes.index',
+          'description'  =>'Lista y navega todos los estudiantes del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Ver detalle de estudiante',
+          'slug'         =>'estudiantes.show',
+          'description'  =>'Ver en detalle cada estudiante del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Creación de estudiantes',
+          'slug'         =>'estudiantes.create',
+          'description'  =>'Crear los datos de un estudiante del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Edición de estudiantes',
+          'slug'         =>'estudiantes.edit',
+          'description'  =>'Editar cualquier dato de un estudiante del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Eliminar estudiante',
+          'slug'         =>'estudiantes.destroy',
+          'description'  =>'Eliminar cualquier estudiante del sistema',
         ]);
     }
 }

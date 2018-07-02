@@ -38,7 +38,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        return view('estudiantes.create');
     }
 
     /**
@@ -49,7 +49,10 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $estudiante = Estudiante::create($request->all());
+
+      return redirect()->route('estudiantes.edit', $estudiante->id)
+      ->with('info', 'Estudiante guardado con éxito');
     }
 
     /**
@@ -73,7 +76,9 @@ class EstudianteController extends Controller
      */
     public function edit(Estudiante $estudiante)
     {
-        //
+      $roles = Role::get();
+
+      return view('estudiantes.edit', compact('estudiante', 'roles'));
     }
 
     /**
@@ -85,7 +90,13 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, Estudiante $estudiante)
     {
-        //
+      //ojo solo se tomarán en cuenta los campos que esten en estudiante.php fillable
+        $estudiante->update($request->all());
+
+
+
+        return redirect()->route('estudiantes.edit', $estudiante->id)
+        ->with('info', 'Estudiante actualizado con éxito');
     }
 
     /**
@@ -96,6 +107,8 @@ class EstudianteController extends Controller
      */
     public function destroy(Estudiante $estudiante)
     {
-        //
+      $estudiante->delete();
+
+      return back()->with('info', 'Eliminado correctamente');
     }
 }

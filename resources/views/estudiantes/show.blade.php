@@ -7,14 +7,16 @@
             <div class="card">
                 <div class="card-header">Estudiante</div>
                 <div class="card-body">
+                  <p><strong>Nombre(Login)</strong> {{ $user->name }}</p>
+                  <p><strong>Correo(Login)</strong> {{ $user->email }}</p>
+                  <p><strong>Id</strong> {{ $estudiante->id }}</p>
                   <p><strong>Nombre</strong> {{ $estudiante->nombre }}</p>
                   <p><strong>Apellido</strong> {{ $estudiante->apellido }}</p>
                   <p><strong>Cédula</strong> {{ $estudiante->cedula }}</p>
                   <p><strong>Pasaporte</strong> {{ $estudiante->pasaporte }}</p>
-                  <p><strong>Usuario</strong> {{ $user->name }}</p>
                   <p><strong>F. Nacimiento</strong> {{ date("d-F-Y", strtotime($estudiante->f_nacimiento)) }}</p>
-                  <p><strong>Peso</strong> {{ $estudiante->peso }}</p>
-                  <p><strong>Estatura</strong> {{ $estudiante->estatura }}</p>
+                  <p><strong>Peso</strong> {{ $estudiante->peso.'kg.' }}</p>
+                  <p><strong>Estatura</strong> {{ $estudiante->estatura.'mtr' }}</p>
                   <p><strong>Sexo</strong> {{ $estudiante->sexo }}</p>
                   <p><strong>Grupo sanguineo</strong> {{ $estudiante->grupo_sangre }}</p>
                   <p><strong>Dirección</strong> {{ $estudiante->direccion }}</p>

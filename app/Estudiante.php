@@ -11,7 +11,8 @@ class Estudiante extends Model
     'sexo','grupo_sangre','direccion','estado','municipio','ciudad',
     'codigo_postal','tlf_local','tlf_movil','correo','nombre_emerg',
     'tlf1_emerg','tlf2_emerg','tlf3_emerg','tipo_licencia','vence_certificado',
-    'vence_licencia',
+    'vence_licencia','horas_externas','evaluacion_medica','hab_instrumental',
+    'hab_monomotor','hab_multimotor','horas_pic','horas_sic',
   ];
 
   public function scopenombre($query, $nombre)

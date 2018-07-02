@@ -44,6 +44,13 @@ class CreateEstudiantesTable extends Migration
             $table->string('tipo_licencia');
             $table->date('vence_certificado');
             $table->date('vence_licencia');
+            $table->decimal('horas_externas', 8,2);
+            $table->char('evaluacion_medica', 1);
+            $table->char('hab_instrumental', 1);
+            $table->char('hab_monomotor', 1);
+            $table->char('hab_multimotor', 1);
+            $table->decimal('horas_pic', 8,2);
+            $table->decimal('horas_sic', 8,2);          
 
             $table->timestamps();
         });

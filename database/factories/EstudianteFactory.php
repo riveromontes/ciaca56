@@ -37,5 +37,12 @@ $factory->define(App\Estudiante::class, function (Faker $faker) {
           'tipo_licencia' => $faker->randomElement($array = array ('alumno','privado','comercial')),
           'vence_certificado' => $faker->date($format = 'Y-m-d', $max = 'now'),
           'vence_licencia' => $faker->date($format = 'Y-m-d', $max = 'now'),
+          'horas_externas' => $faker->numberBetween(1,999)+(1/$faker->randomDigitNotNull),
+          'evaluacion_medica' => $faker->randomElement($array = array ('S','N')),
+          'hab_instrumental' => $faker->randomElement($array = array ('S','N')),
+          'hab_monomotor' => $faker->randomElement($array = array ('S','N')),
+          'hab_multimotor' => $faker->randomElement($array = array ('S','N')),
+          'horas_pic' => $faker->numberBetween(1,99)+(1/$faker->randomDigitNotNull),
+          'horas_sic' => $faker->numberBetween(1,99)+(1/$faker->randomDigitNotNull),
     ];
 });

@@ -5,13 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Usuario</div>
+                <div class="card-header">Estudiante</div>
 
                 <div class="card-body">
-                  {!! Form::model($user, ['route' => ['users.update', $user->id],
+                  {!! Form::model($estudiante, ['route' => ['estudiantes.update', $estudiante->id],
                   'method' => 'PUT']) !!}
 
-                    @include('users.partials.form')
+                    @include('estudiantes.partials.form')
 
                   {!! Form::close() !!}
                 </div>
