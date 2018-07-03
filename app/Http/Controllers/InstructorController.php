@@ -27,7 +27,7 @@ class InstructorController extends Controller
         ->cedula($cedula)
         ->pasaporte($pasaporte)
         ->paginate();
-instructors
+
       return view('instructors.index', compact('instructors', ['nombre', 'apellido', 'cedula', 'pasaporte']));
     }
 
