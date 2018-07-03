@@ -67,7 +67,7 @@ Route::middleware(['auth'])->group(function(){
         //->middleware('permission:products.edit');
 
       //Route::get('products/{product}', 'ProductController@show')->name('products.show')
-        ->middleware('permission:products.show');
+        //->middleware('permission:products.show');
 
       //Route::delete('products/{product}', 'ProductController@destroy')->name('products.destroy')
         //->middleware('permission:products.destroy');
