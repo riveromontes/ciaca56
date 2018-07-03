@@ -117,5 +117,33 @@ class PermissionsTableSeeder extends Seeder
           'slug'         =>'estudiantes.destroy',
           'description'  =>'Eliminar cualquier estudiante del sistema',
         ]);
+
+
+        //Los 5 Permisos necesarios para Instructors
+        Permission::create([
+          'name'         =>'Navegar instructores',
+          'slug'         =>'instructors.index',
+          'description'  =>'Lista y navega todos los instructores del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Ver detalle de instructor',
+          'slug'         =>'instructors.show',
+          'description'  =>'Ver en detalle cada instructor del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Creación de instructores',
+          'slug'         =>'instructors.create',
+          'description'  =>'Crear los datos de un instructor del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Edición de instructores',
+          'slug'         =>'instructors.edit',
+          'description'  =>'Editar cualquier dato de un instructor del sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Eliminar instructor',
+          'slug'         =>'instructors.destroy',
+          'description'  =>'Eliminar cualquier instructor del sistema',
+        ]);
     }
 }
