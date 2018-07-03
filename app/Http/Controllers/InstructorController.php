@@ -21,7 +21,7 @@ class InstructorController extends Controller
       $cedula = $request->get('cedula');
       $pasaporte = $request->get('pasaporte');
 
-      $estudiantes = Instructor::orderBy('id', 'DESC')
+      $instructors = Instructor::orderBy('id', 'DESC')
         ->nombre($nombre)
         ->apellido($apellido)
         ->cedula($cedula)
