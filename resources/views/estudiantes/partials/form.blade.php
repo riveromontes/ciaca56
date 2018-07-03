@@ -28,11 +28,11 @@
 </div>
 <div class="form-group">
   {{ Form::label('sexo', 'Sexo') }}
-  {{ Form::select('sexo', ['M' => 'Masculino', 'F' => 'Femenino'], old('sexo', $estudiante->sexo), ['class' => 'form-control']) }}
+  {{ Form::select('sexo', ['M' => 'Masculino', 'F' => 'Femenino'], old('sexo', '$estudiante->sexo'), ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
   {{ Form::label('grupo_sangre', 'Grupo sanguíneo') }}
-  {{ Form::select('grupo_sangre', ['A+' => 'A+', 'A-' => 'A-', 'B+' => 'B+', 'B-' => 'B-', 'AB+' => 'AB+', 'AB-' => 'AB-', 'O+' => 'O+', 'O-' => 'O-'], old('grupo_sangre', $estudiante->grupo_sangre), ['class' => 'form-control']) }}
+  {{ Form::select('grupo_sangre', ['A+' => 'A+', 'A-' => 'A-', 'B+' => 'B+', 'B-' => 'B-', 'AB+' => 'AB+', 'AB-' => 'AB-', 'O+' => 'O+', 'O-' => 'O-'], old('grupo_sangre', '$estudiante->grupo_sangre'), ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
   {{ Form::label('direccion', 'Dirección') }}
@@ -84,7 +84,7 @@
 </div>
 <div class="form-group">
   {{ Form::label('tipo_licencia', 'Tipo de licencia') }}
-  {{ Form::select('tipo_licencia', ['alumno' => 'Alumno', 'privado' => 'Privado', 'comercial' => 'Comercial'], old('tipo_licencia', $estudiante->tipo_licencia), ['class' => 'form-control']) }}
+  {{ Form::select('tipo_licencia', ['alumno' => 'Alumno', 'privado' => 'Privado', 'comercial' => 'Comercial'], old('tipo_licencia', '$estudiante->tipo_licencia'), ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
   {{ Form::label('vence_licencia', 'Fecha vencimiento licencia') }}
