@@ -51,7 +51,7 @@ class InstructorController extends Controller
     {
       $instructor = Instructor::create($request->all());
 
-      return redirect()->route('instructors.edit', instructor->id)
+      return redirect()->route('instructors.edit', $instructor->id)
       ->with('info', 'Instructor guardado con éxito');
     }
 
