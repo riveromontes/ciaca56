@@ -41,11 +41,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                      @can('products.index')
+                      <!--@can('products.index')
                       <li class="nav-item">
                         <a class="nav-link" href="{{route('products.index')}}">Productos</a>
                       </li>
-                      @endcan
+                      @endcan-->
                       @can('users.index')
                       <li class="nav-item">
                         <a class="nav-link" href="{{route('users.index')}}">Usuarios</a>

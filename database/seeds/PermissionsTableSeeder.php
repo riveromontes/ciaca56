@@ -64,31 +64,31 @@ class PermissionsTableSeeder extends Seeder
 
 
         //Los 5 Permisos necesarios para Products
-        Permission::create([
-          'name'         =>'Navegar productos',
-          'slug'         =>'products.index',
-          'description'  =>'Lista y navega todos los productos del sistema',
-        ]);
-        Permission::create([
-          'name'         =>'Ver detalle de producto',
-          'slug'         =>'products.show',
-          'description'  =>'Ver en detalle cada producto del sistema',
-        ]);
-        Permission::create([
-          'name'         =>'Creación de productos',
-          'slug'         =>'products.create',
-          'description'  =>'Crear los datos de un producto del sistema',
-        ]);
-        Permission::create([
-          'name'         =>'Edición de productos',
-          'slug'         =>'products.edit',
-          'description'  =>'Editar cualquier dato de un producto del sistema',
-        ]);
-        Permission::create([
-          'name'         =>'Eliminar producto',
-          'slug'         =>'products.destroy',
-          'description'  =>'Eliminar cualquier producto del sistema',
-        ]);
+        //Permission::create([
+          //'name'         =>'Navegar productos',
+          //'slug'         =>'products.index',
+          //'description'  =>'Lista y navega todos los productos del sistema',
+        //]);
+        //Permission::create([
+          //'name'         =>'Ver detalle de producto',
+          //'slug'         =>'products.show',
+          //'description'  =>'Ver en detalle cada producto del sistema',
+        //]);
+        //Permission::create([
+          //'name'         =>'Creación de productos',
+          //'slug'         =>'products.create',
+          //'description'  =>'Crear los datos de un producto del sistema',
+        //]);
+        //Permission::create([
+          //'name'         =>'Edición de productos',
+          //'slug'         =>'products.edit',
+          //'description'  =>'Editar cualquier dato de un producto del sistema',
+        //]);
+        //Permission::create([
+          //'name'         =>'Eliminar producto',
+          //'slug'         =>'products.destroy',
+          //'description'  =>'Eliminar cualquier producto del sistema',
+        //]);
 
 
         //Los 5 Permisos necesarios para Estudiantes
