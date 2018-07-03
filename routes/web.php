@@ -53,27 +53,27 @@ Route::middleware(['auth'])->group(function(){
       //7 rutas para products
       //Route::post(RUTA)->name(NOMBRE_DE_RUTA)
         //->middleware(PERMISO);
-      Route::post('products/store', 'ProductController@store')->name('products.store')
-        ->middleware('permission:products.create');
+      //Route::post('products/store', 'ProductController@store')->name('products.store')
+        //->middleware('permission:products.create');
 
-      Route::get('products', 'ProductController@index')->name('products.index')
-        ->middleware('permission:products.index');
+      //Route::get('products', 'ProductController@index')->name('products.index')
+        //->middleware('permission:products.index');
 
-      Route::get('products/create', 'ProductController@create')->name('products.create')
-        ->middleware('permission:products.create');
+      //Route::get('products/create', 'ProductController@create')->name('products.create')
+        //->middleware('permission:products.create');
 
     //abajo entre llaves estamos pasando un parametro que será esperado
-      Route::put('products/{product}', 'ProductController@update')->name('products.update')
-        ->middleware('permission:products.edit');
+      //Route::put('products/{product}', 'ProductController@update')->name('products.update')
+        //->middleware('permission:products.edit');
 
-      Route::get('products/{product}', 'ProductController@show')->name('products.show')
+      //Route::get('products/{product}', 'ProductController@show')->name('products.show')
         ->middleware('permission:products.show');
 
-      Route::delete('products/{product}', 'ProductController@destroy')->name('products.destroy')
-        ->middleware('permission:products.destroy');
+      //Route::delete('products/{product}', 'ProductController@destroy')->name('products.destroy')
+        //->middleware('permission:products.destroy');
 
-      Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit')
-        ->middleware('permission:products.edit');
+      //Route::get('products/{product}/edit', 'ProductController@edit')->name('products.edit')
+        //->middleware('permission:products.edit');
 
 
 
@@ -121,6 +121,32 @@ Route::middleware(['auth'])->group(function(){
 
         Route::get('estudiantes/{estudiante}/edit', 'EstudianteController@edit')->name('estudiantes.edit')
           ->middleware('permission:estudiantes.edit');
+
+
+        //7 rutas para instructors
+        //Route::post(RUTA)->name(NOMBRE_DE_RUTA)
+          //->middleware(PERMISO);
+        Route::post('instructors/store', 'InstructorController@store')->name('instructors.store')
+          ->middleware('permission:instructors.create');
+
+        Route::get('instructors', 'InstructorController@index')->name('instructors.index')
+          ->middleware('permission:instructors.index');
+
+        Route::get('instructors/create', 'InstructorController@create')->name('instructors.create')
+          ->middleware('permission:instructors.create');
+
+      //abajo entre llaves estamos pasando un parametro que será esperado
+        Route::put('instructors/{instructor}', 'InstructorController@update')->name('instructors.update')
+          ->middleware('permission:instructors.edit');
+
+        Route::get('instructors/{instructor}', 'InstructorController@show')->name('instructors.show')
+          ->middleware('permission:instructors.show');
+
+        Route::delete('instructors/{instructor}', 'InstructorController@destroy')->name('instructors.destroy')
+          ->middleware('permission:products.destroy');
+
+        Route::get('instructors/{instructor}/edit', 'InstructorController@edit')->name('instructors.edit')
+          ->middleware('permission:instructors.edit');
 
 
 
