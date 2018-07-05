@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Compra extends Model
 {
   protected $fillable = [
-    'id_piloto','horas_compradas','fecha_compra','monto',
+    'user_id','horas_compradas','fecha_compra','monto',
   ];
 
-  public function scopenombre($query, $id_piloto)
+  public function scopenombre($query, $user_id)
   {
-    if($id_piloto)
-      return $query->where('id_piloto', 'LIKE', "%$id_piloto%");
+    if($user_id)
+      return $query->where('user_id', 'LIKE', "%$user_id%");
   }
   public function scopeapellido($query, $horas_compradas)
   {
