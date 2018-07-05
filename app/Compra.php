@@ -13,12 +13,12 @@ class Compra extends Model
   public function scopeuser_id($query, $user_id)
   {
     if($user_id)
-      return $query->where('user_id', 'LIKE', "%$user_id%");
+      return $query->where('user_id', '=', $user_id);
   }
   public function scopehoras_compradas($query, $horas_compradas)
   {
     if($horas_compradas)
-      return $query->where('horas_compradas', 'LIKE', "%$horas_compradas%");
+      return $query->where('horas_compradas', '=', $horas_compradas);
   }
   public function scopefecha_compra($query, $fecha_compra)
   {
