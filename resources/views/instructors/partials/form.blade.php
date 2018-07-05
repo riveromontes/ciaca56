@@ -1,4 +1,8 @@
 <div class="form-group">
+  {{ Form::label('user_id', 'Id del usuario del sistema') }}
+  {{ Form::text('user_id', null, ['class' => 'form-control']) }}
+</div>
+<div class="form-group">
   {{ Form::label('nombre', 'Nombre') }}
   {{ Form::text('nombre', null, ['class' => 'form-control']) }}
 </div>
@@ -93,6 +97,62 @@
 <div class="form-group">
   {{ Form::label('vence_certificado', 'Fecha vencimiento certificado') }}
   {{ Form::text('vence_certificado', null, ['class' => 'form-control']) }}
+</div>
+<div class="form-group">
+  {{ Form::label('evaluacion_medica', 'Evaluación médica') }}
+  {{ Form::select('evaluacion_medica', ['S' => 'Sí', 'N' => 'No'], old('evaluacion_medica', '$instructor->evaluacion_medica'), ['class' => 'form-control']) }}
+</div>
+
+
+<hr>
+<h5>Tipo de habilitación</h5>
+<div class="form-group">
+  <ul class="list-unstyled">
+      <li>
+        <label>
+          {{ Form::hidden('hab_instrumental', 0) }}
+          {{ Form::checkbox('hab_instrumental', '1') }}
+          Instrumental
+        </label>
+      </li>
+  </ul>
+</div>
+<div class="form-group">
+  <ul class="list-unstyled">
+      <li>
+        <label>
+          {{ Form::hidden('hab_monomotor', 0) }}
+          {{ Form::checkbox('hab_monomotor', '1') }}
+          Monomotor
+        </label>
+      </li>
+  </ul>
+</div>
+<div class="form-group">
+  <ul class="list-unstyled">
+      <li>
+        <label>
+          {{ Form::hidden('hab_multimotor', 0) }}
+          {{ Form::checkbox('hab_multimotor', '1') }}
+          Multimotor
+        </label>
+      </li>
+  </ul>
+</div>
+
+
+
+<div class="form-group">
+  {{ Form::label('horas_externas', 'Horas voladas externas') }}
+  {{ Form::text('horas_externas', null, ['class' => 'form-control']) }}
+</div>
+<div class="form-group">
+  {{ Form::label('horas_pic', 'Horas voladas piloto principal') }}
+  {{ Form::text('horas_pic', null, ['class' => 'form-control']) }}
+</div>
+<div class="form-group">
+  {{ Form::label('horas_sic', 'Horas voladas segundo al mando') }}
+  {{ Form::text('horas_sic', null, ['class' => 'form-control']) }}
 </div>
 <div class="form-group">
   {{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}

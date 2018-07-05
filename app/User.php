@@ -43,4 +43,9 @@ class User extends Authenticatable
       return $this->hasOne(Estudiante::class);
     }
 
+    //Para la relación de usuario con InstructorsTableSeeder
+    public function instructor()
+    {
+      return $this->hasOne(Instructor::class);
+    }
 }

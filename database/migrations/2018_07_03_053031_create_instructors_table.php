@@ -46,9 +46,9 @@ class CreateInstructorsTable extends Migration
               $table->date('vence_licencia');
               $table->decimal('horas_externas', 8,2);
               $table->char('evaluacion_medica', 1);
-              $table->char('hab_instrumental', 1);
-              $table->char('hab_monomotor', 1);
-              $table->char('hab_multimotor', 1);
+              $table->boolean('hab_instrumental')->default(false);;
+              $table->boolean('hab_monomotor')->default(false);;
+              $table->boolean('hab_multimotor')->default(false);;
               $table->decimal('horas_pic', 8,2);
               $table->decimal('horas_sic', 8,2);
 
