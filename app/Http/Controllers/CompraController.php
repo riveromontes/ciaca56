@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Compra;
 use Illuminate\Http\Request;
+use Caffeinated\Shinobi\Models\Role;
 
 class CompraController extends Controller
 {
