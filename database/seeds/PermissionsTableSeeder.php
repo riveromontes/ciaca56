@@ -146,6 +146,7 @@ class PermissionsTableSeeder extends Seeder
           'description'  =>'Eliminar cualquier instructor del sistema',
         ]);
 
+
         //Los 5 Permisos necesarios para Compras
         Permission::create([
           'name'         =>'Navegar horas compradas',
