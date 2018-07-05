@@ -11,7 +11,7 @@
                 Filtrar compras
                 {{ Form::open(['route' => 'compras.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
                 <div class="form-group p-1">
-                  {{ Form::text('id_piloto', id_piloto, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Id Piloto']) }}
+                  {{ Form::text('user_id', user_id, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Id Piloto']) }}
                 </div>
                 <div class="form-group p-1">
                   {{ Form::text('horas_compradas', $horas_compradas, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Horas compradas']) }}
@@ -58,7 +58,7 @@
                 @foreach($compras as $compra)
                   <tr>
                     <td>{{ $compra->id }}</td>
-                    <td>{{ $compra->id_piloto }}</td>
+                    <td>{{ $compra->user_id }}</td>
                     <td>{{ $compra->horas_compradas }}</td>
                     <td>{{ $compra->fecha_compra }}</td>
                     <td>{{ $compra->monto }}</td>

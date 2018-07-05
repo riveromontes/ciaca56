@@ -14,19 +14,19 @@ class CompraController extends Controller
      */
     public function index(Request $request)
     {
-      $id_piloto = $request->get('id_piloto');
+      $user_id = $request->get('user_id');
       $horas_compradas = $request->get('horas_compradas');
       $fecha_compra = $request->get('fecha_compra');
       $monto = $request->get('monto');
 
       $compras = Compra::orderBy('fecha_compra', 'DESC')
-        ->id_piloto($id_piloto)
+        ->user_id($user_id)
         ->horas_compradas($horas_compradas)
         ->fecha_compra($fecha_compra)
         ->monto($monto)
         ->paginate();
 
-      return view('compras.index', compact('compras', ['id_piloto', 'horas_compradas', 'fecha_compra', 'monto']));
+      return view('compras.index', compact('compras', ['user_id', 'horas_compradas', 'fecha_compra', 'monto']));
     }
 
     /**
