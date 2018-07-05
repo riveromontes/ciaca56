@@ -48,4 +48,10 @@ class User extends Authenticatable
     {
       return $this->hasOne(Instructor::class);
     }
+
+    //Para la relación de usuario con ComprasTableSeeder
+    public function compra()
+    {
+      return $this->hasOne(Compra::class);
+    }
 }

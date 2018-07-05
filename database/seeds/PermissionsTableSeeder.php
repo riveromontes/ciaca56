@@ -145,5 +145,32 @@ class PermissionsTableSeeder extends Seeder
           'slug'         =>'instructors.destroy',
           'description'  =>'Eliminar cualquier instructor del sistema',
         ]);
+
+        //Los 5 Permisos necesarios para Compras
+        Permission::create([
+          'name'         =>'Navegar horas compradas',
+          'slug'         =>'compras.index',
+          'description'  =>'Lista y navega todas las horas compradas en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Ver detalle de horas compradas',
+          'slug'         =>'compras.show',
+          'description'  =>'Ver en detalle cada hora comprada en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Creación de horas compradas',
+          'slug'         =>'compras.create',
+          'description'  =>'Crear los datos de una hora comprada en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Edición de horas compradas',
+          'slug'         =>'compras.edit',
+          'description'  =>'Editar cualquier dato de una hora en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Eliminar horas compradas',
+          'slug'         =>'compras.destroy',
+          'description'  =>'Eliminar cualquier hora en el sistema',
+        ]);
     }
 }

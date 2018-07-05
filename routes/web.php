@@ -117,7 +117,7 @@ Route::middleware(['auth'])->group(function(){
           ->middleware('permission:estudiantes.show');
 
         Route::delete('estudiantes/{estudiante}', 'EstudianteController@destroy')->name('estudiantes.destroy')
-          ->middleware('permission:products.destroy');
+          ->middleware('permission:estudiantes.destroy');
 
         Route::get('estudiantes/{estudiante}/edit', 'EstudianteController@edit')->name('estudiantes.edit')
           ->middleware('permission:estudiantes.edit');
@@ -143,11 +143,36 @@ Route::middleware(['auth'])->group(function(){
           ->middleware('permission:instructors.show');
 
         Route::delete('instructors/{instructor}', 'InstructorController@destroy')->name('instructors.destroy')
-          ->middleware('permission:products.destroy');
+          ->middleware('permission:instructors.destroy');
 
         Route::get('instructors/{instructor}/edit', 'InstructorController@edit')->name('instructors.edit')
           ->middleware('permission:instructors.edit');
 
+
+          //7 rutas para compras
+          //Route::post(RUTA)->name(NOMBRE_DE_RUTA)
+            //->middleware(PERMISO);
+          Route::post('compras/store', 'CompraController@store')->name('compras.store')
+            ->middleware('permission:compras.create');
+
+          Route::get('compras', 'CompraController@index')->name('compras.index')
+            ->middleware('permission:compras.index');
+
+          Route::get('compras/create', 'CompraController@create')->name('compras.create')
+            ->middleware('permission:compras.create');
+
+        //abajo entre llaves estamos pasando un parametro que será esperado
+          Route::put('compras/{compra}', 'CompraController@update')->name('compras.update')
+            ->middleware('permission:compras.edit');
+
+          Route::get('compras/{compra}', 'CompraController@show')->name('compras.show')
+            ->middleware('permission:compras.show');
+
+          Route::delete('compras/{compra}', 'CompraController@destroy')->name('compras.destroy')
+            ->middleware('permission:compras.destroy');
+
+          Route::get('compras/{compra}/edit', 'CompraController@edit')->name('compras.edit')
+            ->middleware('permission:compras.edit');
 
 
 });
