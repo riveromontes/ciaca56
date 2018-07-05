@@ -23,12 +23,12 @@ class Compra extends Model
   public function scopefecha_compra($query, $fecha_compra)
   {
     if($fecha_compra)
-      return $query->where('fecha_compra', 'LIKE', "%$fecha_compra%");
+      return $query->where('fecha_compra', '=', $fecha_compra);
   }
   public function scopemonto($query, $monto)
   {
     if($monto)
-      return $query->where('monto', 'LIKE', "%$monto%");
+      return $query->where('monto', '=', $monto);
   }
 
   public function user()
