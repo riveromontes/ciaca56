@@ -71,6 +71,11 @@
                         <a class="nav-link" href="{{route('compras.index')}}">Compras</a>
                       </li>
                       @endcan
+                      @can('vuelos.index')
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{route('compras.index')}}">Vuelos</a>
+                      </li>
+                      @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->
