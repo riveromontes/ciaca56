@@ -175,4 +175,30 @@ Route::middleware(['auth'])->group(function(){
             ->middleware('permission:compras.edit');
 
 
+          //7 rutas para vuelos
+          //Route::post(RUTA)->name(NOMBRE_DE_RUTA)
+            //->middleware(PERMISO);
+          Route::post('vuelos/store', 'VueloController@store')->name('vuelos.store')
+            ->middleware('permission:vuelos.create');
+
+          Route::get('vuelos', 'VueloController@index')->name('vuelos.index')
+            ->middleware('permission:vuelos.index');
+
+          Route::get('vuelos/create', 'VueloController@create')->name('vuelos.create')
+            ->middleware('permission:vuelos.create');
+
+        //abajo entre llaves estamos pasando un parametro que será esperado
+          Route::put('vuelos/{vuelo}', 'VueloController@update')->name('vuelos.update')
+            ->middleware('permission:vuelos.edit');
+
+          Route::get('vuelos/{vuelo}', 'VueloController@show')->name('vuelos.show')
+            ->middleware('permission:vuelos.show');
+
+          Route::delete('vuelos/{vuelo}', 'VueloController@destroy')->name('vuelos.destroy')
+            ->middleware('permission:vuelos.destroy');
+
+          Route::get('vuelos/{vuelo}/edit', 'VueloController@edit')->name('vuelos.edit')
+            ->middleware('permission:vuelos.edit');
+
+
 });
