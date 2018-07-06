@@ -73,7 +73,7 @@
                       @endcan
                       @can('vuelos.index')
                       <li class="nav-item">
-                        <a class="nav-link" href="{{route('compras.index')}}">Vuelos</a>
+                        <a class="nav-link" href="{{route('vuelos.index')}}">Vuelos</a>
                       </li>
                       @endcan
                     </ul>
