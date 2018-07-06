@@ -28,7 +28,8 @@ class CompraController extends Controller
         ->monto($monto)
         ->paginate();
 
-      return view('compras.index', compact('compras', ['user_id', 'horas_compradas', 'fecha_compra', 'monto']));
+      return view('compras.index', compact('compras', ['user_id',
+      'horas_compradas', 'fecha_compra', 'monto']));
     }
 
     /**
@@ -38,7 +39,7 @@ class CompraController extends Controller
      */
     public function create()
     {
-        return view('compras.create');
+      return view('compras.create');
     }
 
     /**
@@ -92,8 +93,6 @@ class CompraController extends Controller
     {
       //ojo solo se tomarán en cuenta los campos que esten en compra.php fillable
         $compra->update($request->all());
-
-
 
         return redirect()->route('compras.edit', $compra->id)
         ->with('info', 'Compra de horas actualizada con éxito');

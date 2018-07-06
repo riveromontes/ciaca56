@@ -93,8 +93,6 @@ class EstudianteController extends Controller
       //ojo solo se tomarán en cuenta los campos que esten en estudiante.php fillable
         $estudiante->update($request->all());
 
-
-
         return redirect()->route('estudiantes.edit', $estudiante->id)
         ->with('info', 'Estudiante actualizado con éxito');
     }
