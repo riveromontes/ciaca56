@@ -35,8 +35,8 @@
         <div class="card mb-3">
           <div class="card-header">
             Vuelos CIACA
-            @can('compras.create')
-              <a href="{{ route('compras.create') }}"
+            @can('vuelos.create')
+              <a href="{{ route('vuelos.create') }}"
                 class="btn btn-sm btn-primary float-right">
                 Crear
               </a>
