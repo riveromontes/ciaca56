@@ -12,6 +12,7 @@
                   <p><strong>Id del vuelo</strong> {{ $vuelo->id }}</p>
                   <p><strong>Fecha del vuelo</strong> {{ $vuelo->fecha_vuelo }}</p>
                   <p><strong>Modalidad</strong> {{ $vuelo->modalidad }}</p>
+                  <p><strong>Horas voladas</strong> {{ $vuelo->horas_voladas }}</p>
                   <p><strong>Avión</strong> {{ $vuelo->avion }}</p>
                   <p><strong>Horas de helice</strong> {{ $vuelo->horas_helice }}</p>
                   <p><strong>Horas de aceite</strong> {{ $vuelo->horas_aceite }}</p>

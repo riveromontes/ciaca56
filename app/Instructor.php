@@ -40,4 +40,8 @@ class Instructor extends Model
   {
     return $this->hasOne(User::class);
   }
+  public function vuelo()
+  {
+    return $this->hasMany(Vuelo::class);
+  }
 }

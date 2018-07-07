@@ -24,7 +24,7 @@ class VueloController extends Controller
       $modalidad = $request->get('modalidad');
       $avion = $request->get('avion');
 
-      $vuelos = Vuelo::orderBy('fecha_compra', 'DESC')
+      $vuelos = Vuelo::orderBy('fecha_vuelo', 'DESC')
         ->id_estudiante($id_estudiante)
         ->id_instructor($id_instructor)
         ->fecha_vuelo($fecha_vuelo)

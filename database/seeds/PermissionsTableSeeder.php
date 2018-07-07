@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Caffeinated\Shinobi\Models\Permission;
+use Caffeinated\Shinobi\Models\Role;
 
 class PermissionsTableSeeder extends Seeder
 {
@@ -12,6 +13,12 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        Role::create([
+          'name'    => 'Admin',
+          'slug'    => 'admin',
+          'special' => 'all-access',
+        ]);
+
         //Permisos para Usuarios (Solo 4 porque crear no hace falta)
         Permission::create([
           'name'         =>'Navegar usuarios',
@@ -172,6 +179,33 @@ class PermissionsTableSeeder extends Seeder
           'name'         =>'Eliminar horas compradas',
           'slug'         =>'compras.destroy',
           'description'  =>'Eliminar cualquier hora en el sistema',
+        ]);
+
+        //Los 5 Permisos necesarios para Vuelos
+        Permission::create([
+          'name'         =>'Navegar vuelos realizados',
+          'slug'         =>'vuelos.index',
+          'description'  =>'Lista y navega todos los vuelos realizados en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Ver detalle de vuelos realizados',
+          'slug'         =>'vuelos.show',
+          'description'  =>'Ver en detalle cada vuelo realizado en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Creación de vuelo realizado',
+          'slug'         =>'vuelos.create',
+          'description'  =>'Crear los datos de un vuelo realizado en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Edición de vuelo realizado',
+          'slug'         =>'vuelos.edit',
+          'description'  =>'Editar cualquier dato de un vuelo realizado en el sistema',
+        ]);
+        Permission::create([
+          'name'         =>'Eliminar vuelo realizado',
+          'slug'         =>'vuelos.destroy',
+          'description'  =>'Eliminar cualquier vuelo realizado en el sistema',
         ]);
     }
 }

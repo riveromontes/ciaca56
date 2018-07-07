@@ -62,7 +62,7 @@
                     <td>{{ $vuelo->id_estudiante }}</td>
                     <td>{{ $vuelo->id_instructor }}</td>
                     <td>{{ $vuelo->fecha_vuelo }}</td>
-                    <td>{{ $vuelo->horas_vuelo }}</td>
+                    <td>{{ $vuelo->horas_voladas }}</td>
                     <td>{{ $vuelo->avion }}</td>
                     <td width="10px">
                       @can('vuelos.show')
