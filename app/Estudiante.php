@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Estudiante extends Model
 {
   protected $fillable = [
-    'id_user','nombre','apellido','cedula','pasaporte','f_nacimiento','peso','estatura',
+    'user_id','nombre','apellido','cedula','pasaporte','f_nacimiento','peso','estatura',
     'sexo','grupo_sangre','direccion','estado','municipio','ciudad',
     'codigo_postal','tlf_local','tlf_movil','correo','nombre_emerg',
     'tlf1_emerg','tlf2_emerg','tlf3_emerg','tipo_licencia','vence_certificado',
