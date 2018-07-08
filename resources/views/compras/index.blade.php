@@ -16,23 +16,15 @@
                 <div class="form-group p-1">
                   {{ Form::text('horas_compradas', $horas_compradas, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Horas compradas']) }}
                 </div>
-                
+
                 <div class="form-group p-1">
                   <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                      {{ Form::text('fecha_compra', $fecha_compra, ['class' => 'form-control datetimepicker-input', 'data-target' => '#datetimepicker4', 'size' => '8', 'placeholder' => 'Fecha compra']) }}
+                      {{ Form::text('fecha_compra', $fecha_compra, ['class' => 'form-control datetimepicker-input', 'data-target' => '#datetimepicker4', 'size' => '17', 'placeholder' => 'Fecha compra']) }}
                       <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                           <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                       </div>
                   </div>
                 </div>
-                <script type="text/javascript">
-                    $(function () {
-
-                        $('#datetimepicker4').datetimepicker({
-                          format: 'LT'
-                        });
-                    });
-                </script>
 
                 <div class="form-group p-1">
                   {{ Form::text('monto', $monto, ['class' => 'form-control', 'size' => '9', 'placeholder' => 'Monto ($)']) }}

@@ -21,19 +21,17 @@ class VueloController extends Controller
       $id_estudiante = $request->get('id_estudiante');
       $id_instructor = $request->get('id_instructor');
       $fecha_vuelo = $request->get('fecha_vuelo');
-      $modalidad = $request->get('modalidad');
       $avion = $request->get('avion');
 
       $vuelos = Vuelo::orderBy('fecha_vuelo', 'DESC')
         ->id_estudiante($id_estudiante)
         ->id_instructor($id_instructor)
         ->fecha_vuelo($fecha_vuelo)
-        ->modalidad($modalidad)
         ->avion($avion)
         ->paginate();
 
       return view('vuelos.index', compact('vuelos', ['id_estudiante',
-      'id_instructor', 'fecha_vuelo', 'modalidad', 'avion']));
+      'id_instructor', 'fecha_vuelo', 'avion']));
     }
 
     /**
@@ -54,9 +52,19 @@ class VueloController extends Controller
      */
     public function store(Request $request)
     {
-      $vuelo = Vuelo::create($request->all());
+      $array = $request->all();
+      $array2 = explode(" ", $array['fecha_vuelo']);
+      $array['fecha_vuelo'] = $array2[0];
 
-      return redirect()->route('compras.edit', $vuelo->id)
+      $objeto_DateTime = strtotime($array['fecha_vuelo']);
+      $array['fecha_vuelo'] = date('Y-m-d', $objeto_DateTime);
+
+      $request->merge($array);
+      //dd($array);
+
+      $vuelo = Vuelo::create($array);
+
+      return redirect()->route('vuelos.edit', $vuelo->id)
       ->with('info', 'Vuelo guardado con éxito');
     }
 

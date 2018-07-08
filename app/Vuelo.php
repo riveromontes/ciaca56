@@ -25,8 +25,18 @@ class Vuelo extends Model
 
   public function scopefecha_vuelo($query, $fecha_vuelo)
   {
-    if($fecha_vuelo)
+    if($fecha_vuelo){
+
+      $fecha_formateada = explode(" ", $fecha_vuelo);
+      $fecha_vuelo = $fecha_formateada[0];
+
+      $objeto_DateTime = strtotime($fecha_vuelo);
+      $fecha_vuelo = date('Y-m-d', $objeto_DateTime);
+
+      //dd($fecha_compra);
+
       return $query->where('fecha_vuelo', '=', $fecha_vuelo);
+    }
   }
 
   public function scopemodalidad($query, $modalidad)

@@ -17,7 +17,12 @@
                   {{ Form::text('id_instructor', $id_instructor, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Id Instructor']) }}
                 </div>
                 <div class="form-group p-1">
-                  {{ Form::text('fecha_vuelo', $fecha_vuelo, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Fecha del vuelo']) }}
+                  <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                      {{ Form::text('fecha_vuelo', $fecha_vuelo, ['class' => 'form-control datetimepicker-input', 'data-target' => '#datetimepicker4', 'size' => '17', 'placeholder' => 'Fecha del vuelo']) }}
+                      <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                  </div>
                 </div>
                 <div class="form-group p-1">
                   {{ Form::text('avion', $avion, ['class' => 'form-control', 'size' => '8', 'placeholder' => 'Avión']) }}
@@ -50,7 +55,6 @@
                   <th>Id estudiante</th>
                   <th>Id Instructor</th>
                   <th>Fecha Vuelo</th>
-                  <th>Horas Vuelo</th>
                   <th>Avión</th>
                   <th colspan="3">&nbsp;</th>
                 </tr>
@@ -62,7 +66,6 @@
                     <td>{{ $vuelo->id_estudiante }}</td>
                     <td>{{ $vuelo->id_instructor }}</td>
                     <td>{{ $vuelo->fecha_vuelo }}</td>
-                    <td>{{ $vuelo->horas_voladas }}</td>
                     <td>{{ $vuelo->avion }}</td>
                     <td width="10px">
                       @can('vuelos.show')

@@ -32,6 +32,16 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script type="text/javascript">
+        $(function () {
+
+            $('#datetimepicker4').datetimepicker({
+              format: 'LT'
+            });
+        });
+    </script>
+
 </head>
 <body>
     <div id="app">

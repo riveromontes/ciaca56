@@ -50,7 +50,18 @@ class CompraController extends Controller
      */
     public function store(Request $request)
     {
-      $compra = Compra::create($request->all());
+      $array = $request->all();
+      $array2 = explode(" ", $array['fecha_compra']);
+      $array['fecha_compra'] = $array2[0];
+
+      $objeto_DateTime = strtotime($array['fecha_compra']);
+      $array['fecha_compra'] = date('Y-m-d', $objeto_DateTime);
+
+      $request->merge($array);
+      //dd($array);
+
+
+      $compra = Compra::create($array);
 
       return redirect()->route('compras.edit', $compra->id)
       ->with('info', 'Compra guardada con éxito');

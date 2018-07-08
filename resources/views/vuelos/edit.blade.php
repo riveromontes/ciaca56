@@ -8,7 +8,7 @@
                 <div class="card-header">Vuelos CIACA</div>
 
                 <div class="card-body">
-                  {!! Form::model($compra, ['route' => ['vuelos.update', $vuelo->id],
+                  {!! Form::model($vuelo, ['route' => ['vuelos.update', $vuelo->id],
                   'method' => 'PUT']) !!}
 
                     @include('vuelos.partials.form')
