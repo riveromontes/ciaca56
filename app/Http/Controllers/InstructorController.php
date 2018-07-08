@@ -47,13 +47,34 @@ class InstructorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-      $instructor = Instructor::create($request->all());
+     public function store(Request $request)
+     {
 
-      return redirect()->route('instructors.edit', $instructor->id)
-      ->with('info', 'Instructor guardado con éxito');
-    }
+       $array = $request->all();
+
+       $array2 = explode(" ", $array['f_nacimiento']);
+       $array['f_nacimiento'] = $array2[0];
+       $objeto_DateTime = strtotime($array['f_nacimiento']);
+       $array['f_nacimiento'] = date('Y-m-d', $objeto_DateTime);
+
+       $array2 = explode(" ", $array['vence_licencia']);
+       $array['vence_licencia'] = $array2[0];
+       $objeto_DateTime = strtotime($array['vence_licencia']);
+       $array['vence_licencia'] = date('Y-m-d', $objeto_DateTime);
+
+       $array2 = explode(" ", $array['vence_certificado']);
+       $array['vence_certificado'] = $array2[0];
+       $objeto_DateTime = strtotime($array['vence_certificado']);
+       $array['vence_certificado'] = date('Y-m-d', $objeto_DateTime);
+
+       $request->merge($array);
+       //dd($array);
+
+       $instructor = Instructor::create($array);
+
+       return redirect()->route('instructors.edit', $instructor->id)
+       ->with('info', 'Instructor guardado con éxito');
+     }
 
     /**
      * Display the specified resource.

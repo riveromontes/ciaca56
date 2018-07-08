@@ -18,10 +18,17 @@
   {{ Form::label('pasaporte', 'Pasaporte') }}
   {{ Form::text('pasaporte', null, ['class' => 'form-control']) }}
 </div>
+
 <div class="form-group">
   {{ Form::label('f_nacimiento', 'Fecha de nacimiento') }}
-  {{ Form::text('f_nacimiento', null, ['class' => 'form-control']) }}
+    <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+      {{ Form::text('f_nacimiento', null, ['class' => 'form-control datetimepicker-input', 'placeholder' => 'Fecha de nacimiento']) }}
+      <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      </div>
+    </div>
 </div>
+
 <div class="form-group">
   {{ Form::label('peso', 'Peso (en Kg.)') }}
   {{ Form::text('peso', null, ['class' => 'form-control']) }}
@@ -90,14 +97,26 @@
   {{ Form::label('tipo_licencia', 'Tipo de licencia') }}
   {{ Form::select('tipo_licencia', ['alumno' => 'Alumno', 'privado' => 'Privado', 'comercial' => 'Comercial'], old('tipo_licencia', '$instructor->tipo_licencia'), ['class' => 'form-control']) }}
 </div>
+
 <div class="form-group">
-  {{ Form::label('vence_licencia', 'Fecha vencimiento licencia') }}
-  {{ Form::text('vence_licencia', null, ['class' => 'form-control']) }}
+  {{ Form::label('vence_licencia', 'Fecha de vencimiento de la licencia') }}
+    <div class="input-group date" id="datetimepicker41" data-target-input="nearest">
+      {{ Form::text('vence_licencia', null, ['class' => 'form-control datetimepicker-input', 'placeholder' => 'Fecha de vencimiento de la licencia']) }}
+      <div class="input-group-append" data-target="#datetimepicker41" data-toggle="datetimepicker">
+          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      </div>
+    </div>
 </div>
 <div class="form-group">
-  {{ Form::label('vence_certificado', 'Fecha vencimiento certificado') }}
-  {{ Form::text('vence_certificado', null, ['class' => 'form-control']) }}
+  {{ Form::label('vence_certificado', 'Fecha de vencimiento del certificado') }}
+    <div class="input-group date" id="datetimepicker42" data-target-input="nearest">
+      {{ Form::text('vence_certificado', null, ['class' => 'form-control datetimepicker-input', 'placeholder' => 'Fecha de vencimiento del certificado']) }}
+      <div class="input-group-append" data-target="#datetimepicker42" data-toggle="datetimepicker">
+          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+      </div>
+    </div>
 </div>
+
 <div class="form-group">
   {{ Form::label('evaluacion_medica', 'Evaluación médica') }}
   {{ Form::select('evaluacion_medica', ['S' => 'Sí', 'N' => 'No'], old('evaluacion_medica', '$instructor->evaluacion_medica'), ['class' => 'form-control']) }}
