@@ -22,16 +22,17 @@ class Compra extends Model
   }
   public function scopefecha_compra($query, $fecha_compra)
   {
-    $fecha_formateada = explode(" ", $fecha_compra);
-    $fecha_compra = $fecha_formateada[0];
-
-    $objeto_DateTime = strtotime($fecha_compra);
-    $fecha_compra = date('Y-m-d', $objeto_DateTime);
-
-    //dd($fecha_compra);
-
     if($fecha_compra)
+    {
+      $fecha_formateada = explode(" ", $fecha_compra);
+      $fecha_compra = $fecha_formateada[0];
+
+      $objeto_DateTime = strtotime($fecha_compra);
+      $fecha_compra = date('Y-m-d', $objeto_DateTime);
+
+      //dd($fecha_compra);
       return $query->where('fecha_compra', '=', $fecha_compra);
+    }
   }
   public function scopemonto($query, $monto)
   {

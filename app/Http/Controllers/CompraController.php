@@ -59,8 +59,6 @@ class CompraController extends Controller
 
       $request->merge($array);
       //dd($array);
-
-
       $compra = Compra::create($array);
 
       return redirect()->route('compras.edit', $compra->id)

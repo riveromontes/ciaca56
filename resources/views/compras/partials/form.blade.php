@@ -6,6 +6,7 @@
   {{ Form::label('horas_compradas', 'Horas compradas') }}
   {{ Form::text('horas_compradas', null, ['class' => 'form-control']) }}
 </div>
+
 <div class="form-group">
   {{ Form::label('fecha_compra', 'Fecha de la compra de horas') }}
     <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
@@ -15,6 +16,7 @@
       </div>
     </div>
 </div>
+
 <div class="form-group">
   {{ Form::label('monto', 'Monto ($)') }}
   {{ Form::text('monto', null, ['class' => 'form-control']) }}
