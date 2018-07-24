@@ -37,10 +37,12 @@ class CompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-      return view('compras.create');
-    }
+     public function create()
+     {
+       $users = User::get();
+
+       return view('compras.create', compact('users'));
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -86,9 +88,9 @@ class CompraController extends Controller
      */
     public function edit(Compra $compra)
     {
-      $roles = Role::get();
+      $users = User::get();
 
-      return view('compras.edit', compact('compra', 'roles'));
+      return view('compras.edit', compact('compra', 'users'));
     }
 
     /**

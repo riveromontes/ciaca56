@@ -1,6 +1,11 @@
 <div class="form-group">
-  {{ Form::label('user_id', 'Id del usuario del sistema (piloto)') }}
-  {{ Form::text('user_id', null, ['class' => 'form-control']) }}
+  {{ Form::label('user_id', 'Usuario del sistema (piloto)') }}
+  <select id="user_id" name class="form-control">
+    <option value="null">Usuario que comprará las horas</option>
+    @foreach($users as $user)
+       <option value="{{$user->id}}">{{$user->name}}</option>
+    @endforeach
+  </select>
 </div>
 <div class="form-group">
   {{ Form::label('horas_compradas', 'Horas compradas') }}
