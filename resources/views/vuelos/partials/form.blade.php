@@ -1,10 +1,21 @@
 <div class="form-group">
-  {{ Form::label('id_estudiante', 'Id del estudiante (piloto)') }}
-  {{ Form::text('id_estudiante', null, ['class' => 'form-control']) }}
+  {{ Form::label('id_estudiente', 'Estudiante (piloto)') }}
+  <select id="id_estudiante" name class="form-control">
+    <option value="null">Estudiante que voló</option>
+    @foreach($estudiantes as $estudiante)
+       <option value="{{$estudiante->id}}">{{$estudiante->nombre.' '.$estudiante->apellido}}</option>
+    @endforeach
+  </select>
 </div>
+
 <div class="form-group">
-  {{ Form::label('id_instructor', 'Id del instructor') }}
-  {{ Form::text('id_instructor', null, ['class' => 'form-control']) }}
+  {{ Form::label('id_instructor', 'Instructor') }}
+  <select id="id_instructor" name class="form-control">
+    <option value="null">Instructor en el vuelo</option>
+    @foreach($instructors as $instructor)
+       <option value="{{$instructor->id}}">{{$instructor->nombre.' '.$instructor->apellido}}</option>
+    @endforeach
+  </select>
 </div>
 <div class="form-group">
   {{ Form::label('horas_voladas', 'Horas voladas') }}

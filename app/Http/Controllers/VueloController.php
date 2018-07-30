@@ -39,10 +39,13 @@ class VueloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('vuelos.create');
-    }
+     public function create()
+     {
+         $estudiantes = Estudiante::get();
+         $instructors = Instructor::get();
+
+         return view('vuelos.create', compact('estudiantes', 'instructors'));
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -88,12 +91,15 @@ class VueloController extends Controller
      * @param  \App\Vuelo  $vuelo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vuelo $vuelo)
-    {
-      $roles = Role::get();
+     public function edit(Vuelo $vuelo)
+     {
+       $roles = Role::get();
 
-      return view('vuelos.edit', compact('vuelo'));
-    }
+       $estudiantes = Estudiante::get();
+       $instructors = Instructor::get();
+
+       return view('vuelos.edit', compact('vuelo', 'estudiantes', 'instructors'));
+     }
 
     /**
      * Update the specified resource in storage.
