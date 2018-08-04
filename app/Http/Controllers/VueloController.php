@@ -41,10 +41,10 @@ class VueloController extends Controller
      */
      public function create()
      {
-         $estudiantes = Estudiante::get();
-         $instructors = Instructor::get();
+        $estudiantes = Estudiante::get();
+        $instructors = Instructor::get();
 
-         return view('vuelos.create', compact('estudiantes', 'instructors'));
+        return view('vuelos.create', compact('estudiantes', 'instructors'));
      }
 
     /**

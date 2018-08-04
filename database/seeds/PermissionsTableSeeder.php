@@ -207,5 +207,14 @@ class PermissionsTableSeeder extends Seeder
           'slug'         =>'vuelos.destroy',
           'description'  =>'Eliminar cualquier vuelo realizado en el sistema',
         ]);
+
+
+
+        //1 permiso necesarios para horascontrol (cartelera)
+        Permission::create([
+          'name'         =>'Navegar las horas por piloto (cartelera)',
+          'slug'         =>'horascontrol.index',
+          'description'  =>'Lista y navega todas las horas de vuelo de los pilotos del sistema',
+        ]);
     }
 }

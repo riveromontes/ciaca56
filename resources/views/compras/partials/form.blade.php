@@ -1,6 +1,6 @@
 <div class="form-group">
   {{ Form::label('user_id', 'Usuario del sistema (piloto)') }}
-  <select id="user_id" name class="form-control">
+  <select id="user_id" name="user_id" class="form-control">
     <option value="null">Usuario que comprará las horas</option>
     @foreach($users as $user)
        <option value="{{$user->id}}">{{$user->name}}</option>

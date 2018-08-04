@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Estudiante;
 use App\User;
+use App\Compra;
+use App\Vuelo;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Http\Request;
 
-class EstudianteController extends Controller
+class HorascontrolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +30,10 @@ class EstudianteController extends Controller
         ->pasaporte($pasaporte)
         ->paginate();
 
-      return view('estudiantes.index', compact('estudiantes', ['nombre', 'apellido', 'cedula', 'pasaporte']));
+        $compras = Compra::get();
+        $vuelos = Vuelo::get();
+
+      return view('horascontrols.index', compact('estudiantes', ['nombre', 'apellido', 'cedula', 'pasaporte'], 'compras', 'vuelos'));
     }
 
     /**
@@ -47,34 +52,34 @@ class EstudianteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+     public function store(Request $request)
+     {
 
-      $array = $request->all();
+       $array = $request->all();
 
-      $array2 = explode(" ", $array['f_nacimiento']);
-      $array['f_nacimiento'] = $array2[0];
-      $objeto_DateTime = strtotime($array['f_nacimiento']);
-      $array['f_nacimiento'] = date('Y-m-d', $objeto_DateTime);
+       $array2 = explode(" ", $array['f_nacimiento']);
+       $array['f_nacimiento'] = $array2[0];
+       $objeto_DateTime = strtotime($array['f_nacimiento']);
+       $array['f_nacimiento'] = date('Y-m-d', $objeto_DateTime);
 
-      $array2 = explode(" ", $array['vence_licencia']);
-      $array['vence_licencia'] = $array2[0];
-      $objeto_DateTime = strtotime($array['vence_licencia']);
-      $array['vence_licencia'] = date('Y-m-d', $objeto_DateTime);
+       $array2 = explode(" ", $array['vence_licencia']);
+       $array['vence_licencia'] = $array2[0];
+       $objeto_DateTime = strtotime($array['vence_licencia']);
+       $array['vence_licencia'] = date('Y-m-d', $objeto_DateTime);
 
-      $array2 = explode(" ", $array['vence_certificado']);
-      $array['vence_certificado'] = $array2[0];
-      $objeto_DateTime = strtotime($array['vence_certificado']);
-      $array['vence_certificado'] = date('Y-m-d', $objeto_DateTime);
+       $array2 = explode(" ", $array['vence_certificado']);
+       $array['vence_certificado'] = $array2[0];
+       $objeto_DateTime = strtotime($array['vence_certificado']);
+       $array['vence_certificado'] = date('Y-m-d', $objeto_DateTime);
 
-      $request->merge($array);
-      //dd($array);
+       $request->merge($array);
+       //dd($array);
 
-      $estudiante = Estudiante::create($array);
+       $estudiante = Estudiante::create($array);
 
-      return redirect()->route('estudiantes.edit', $estudiante->id)
-        ->with('info', 'Estudiante guardado con éxito');
-    }
+       return redirect()->route('estudiantes.edit', $estudiante->id)
+       ->with('info', 'Estudiante guardado con éxito');
+     }
 
     /**
      * Display the specified resource.
@@ -115,7 +120,7 @@ class EstudianteController extends Controller
         $estudiante->update($request->all());
 
         return redirect()->route('estudiantes.edit', $estudiante->id)
-          ->with('info', 'Estudiante actualizado con éxito');
+        ->with('info', 'Estudiante actualizado con éxito');
     }
 
     /**

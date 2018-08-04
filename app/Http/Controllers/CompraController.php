@@ -37,12 +37,11 @@ class CompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function create()
-     {
-       $users = User::get();
-
-       return view('compras.create', compact('users'));
-     }
+    public function create()
+    {
+      $users = User::get();
+      return view('compras.create', compact('users'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -60,7 +59,7 @@ class CompraController extends Controller
       $array['fecha_compra'] = date('Y-m-d', $objeto_DateTime);
 
       $request->merge($array);
-      //dd($array);
+
       $compra = Compra::create($array);
 
       return redirect()->route('compras.edit', $compra->id)

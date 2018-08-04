@@ -92,6 +92,11 @@
                         <a class="nav-link" href="{{route('vuelos.index')}}">Vuelos</a>
                       </li>
                       @endcan
+                      @can('horascontrols.index')
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{route('horascontrols.index')}}">Cartelera</a>
+                      </li>
+                      @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->
