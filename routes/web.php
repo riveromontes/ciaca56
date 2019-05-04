@@ -200,5 +200,6 @@ Route::middleware(['auth'])->group(function(){
           Route::get('vuelos/{vuelo}/edit', 'VueloController@edit')->name('vuelos.edit')
             ->middleware('permission:vuelos.edit');
 
-
+            Route::get('horascontrols', 'horascontrolController@index')->name('horascontrols.index')
+              ->middleware('permission:horascontrols.index');
 });
