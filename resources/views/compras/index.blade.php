@@ -11,10 +11,10 @@
                 Filtrar compras
                 {{ Form::open(['route' => 'compras.index', 'method' => 'GET', 'class' => 'form-inline pull-right']) }}
                 <div class="form-group p-1">
-                  {{ Form::text('user_id', $user_id, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Id Piloto']) }}
+                  {{ Form::text('cedula', $cedula, ['class' => 'form-control', 'size' => '10', 'placeholder' => 'Cédula']) }}
                 </div>
                 <div class="form-group p-1">
-                  {{ Form::text('horas_compradas', $horas_compradas, ['class' => 'form-control', 'size' => '12', 'placeholder' => 'Horas compradas']) }}
+                  {{ Form::text('horas_compradas', $horas_compradas, ['class' => 'form-control', 'size' => '15', 'placeholder' => 'Horas compradas']) }}
                 </div>
 
                 <div class="form-group p-1">
@@ -55,6 +55,7 @@
                 <tr>
                   <th width="10px">ID</th>
                   <th>Id piloto</th>
+                  <th>Cédula</th>
                   <th>Horas compradas</th>
                   <th>Fecha compra</th>
                   <th>Monto</th>
@@ -66,6 +67,7 @@
                   <tr>
                     <td>{{ $compra->id }}</td>
                     <td>{{ $compra->user_id }}</td>
+                    <td>{{ $compra->cedula }}</td>
                     <td>{{ $compra->horas_compradas }}</td>
                     <td>{{ $compra->fecha_compra }}</td>
                     <td>{{ $compra->monto }}</td>

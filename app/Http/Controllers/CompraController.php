@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Compra;
 use App\User;
+use App\Estudiante;
 use Illuminate\Http\Request;
 use Caffeinated\Shinobi\Models\Role;
 
@@ -20,13 +21,19 @@ class CompraController extends Controller
       $horas_compradas = $request->get('horas_compradas');
       $fecha_compra = $request->get('fecha_compra');
       $monto = $request->get('monto');
+      $cedula = $request->get('cedula');
+
 
       $compras = Compra::orderBy('fecha_compra', 'DESC')
         ->user_id($user_id)
+        ->$estudiante->cedula($cedula)
+        ->cedula($cedula)
         ->horas_compradas($horas_compradas)
         ->fecha_compra($fecha_compra)
         ->monto($monto)
         ->paginate();
+
+
 
       return view('compras.index', compact('compras', ['user_id',
       'horas_compradas', 'fecha_compra', 'monto']));
@@ -75,8 +82,9 @@ class CompraController extends Controller
     public function show(Compra $compra)
     {
       $user = User::find($compra->user_id);
+      $estudiante = Estudiante::find($compra->user_id);
 
-      return view('compras.show', compact('compra', 'user'));
+      return view('compras.show', compact('compra', 'user', 'estudiante'));
     }
 
     /**

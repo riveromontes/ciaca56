@@ -15,6 +15,7 @@ class Compra extends Model
     if($user_id)
       return $query->where('user_id', '=', $user_id);
   }
+
   public function scopehoras_compradas($query, $horas_compradas)
   {
     if($horas_compradas)
