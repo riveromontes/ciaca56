@@ -56,6 +56,7 @@ class VueloController extends Controller
     public function store(Request $request)
     {
       $array = $request->all();
+
       $array2 = explode(" ", $array['fecha_vuelo']);
       $array['fecha_vuelo'] = $array2[0];
 
