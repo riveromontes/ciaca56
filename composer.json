@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.3.3",
+        "php": "^7.3.4",
         "caffeinated/shinobi": "^3.3",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
