@@ -1,6 +1,6 @@
 <?php
 
-$DATABASE_URL=parse_url('postgres://ywcnzevosowfqx:894128a904d8713030e8170ea392dcc4e857cefa8bb15c64761388f617bd6c87@ec2-184-73-201-79.compute-1.amazonaws.com:5432/d1fg867l7kqrfh');
+$DATABASE_URL=parse_url('postgres://htpuulohrefvhr:882f464c42eca5c10876b66a7816be04fc463d4928cecef2014128fca82deb10@ec2-174-129-29-101.compute-1.amazonaws.com:5432/d8am56ikbg69a9');
 return [
 
     /*
@@ -57,11 +57,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),//env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),//env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'ciaca'),//env('DB_DATABASE', 'ciaca'),
-            'username' => env('DB_USERNAME', 'postgres'),//env('DB_USERNAME', 'postgres'),
-            'password' => env('DB_PASSWORD', '12345'),//env('DB_PASSWORD', '12345'),
+            'host' => $DATABASE_URL["host"],//env('DB_HOST', '127.0.0.1'),
+            'port' => $DATABASE_URL["port"],//env('DB_PORT', '5432'),
+            'database' => ltrim($DATABASE_URL["path"], "/"),//env('DB_DATABASE', 'ciaca'),
+            'username' => $DATABASE_URL["user"],//env('DB_USERNAME', 'postgres'),
+            'password' => $DATABASE_URL["pass"],//env('DB_PASSWORD', '12345'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
