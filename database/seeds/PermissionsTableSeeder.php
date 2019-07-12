@@ -13,11 +13,11 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
-        //Role::create([
-          //'name'    => 'Admin',
-          //'slug'    => 'admin',
-          //'special' => 'all-access',
-        //]);
+        Role::create([
+          'name'    => 'Admin',
+          'slug'    => 'admin',
+          'special' => 'all-access',
+        ]);
 
         //Permisos para Usuarios (Solo 4 porque crear no hace falta)
         Permission::create([
