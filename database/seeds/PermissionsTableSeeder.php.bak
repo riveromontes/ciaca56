@@ -212,9 +212,9 @@ class PermissionsTableSeeder extends Seeder
 
         //1 permiso necesarios para horascontrol (cartelera)
         Permission::create([
-          'name'         =>'Navegar las horas por piloto (cartelera)',
+          'name'         =>'Navegar las horas disponibles por piloto (cartelera)',
           'slug'         =>'horascontrol.index',
-          'description'  =>'Lista y navega todas las horas de vuelo de los pilotos del sistema',
+          'description'  =>'Lista y navega todas las horas de vuelo disponibles de los pilotos del sistema',
         ]);
     }
 }

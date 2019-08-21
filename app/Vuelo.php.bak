@@ -10,16 +10,7 @@ class Vuelo extends Model
     'id_estudiante','id_instructor','horas_voladas','fecha_vuelo','modalidad',
     'horas_helice','horas_aceite','horas_fuselaje','horas_bujias','avion',
   ];
-  
-  public function student()
-  {
-    return $this->BelongsTo('App\Estudiante', 'id_estudiante', 'id');
-  }
-  public function instrucctor()
-  {
-    return $this->BelongsTo('App\Instructor', 'id_instructor', 'id');
-  }
-	
+
   public function scopeid_estudiante($query, $id_estudiante)
   {
     if($id_estudiante)
