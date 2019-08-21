@@ -59,6 +59,7 @@ class CompraController extends Controller
       $array['fecha_compra'] = date('Y-m-d', $objeto_DateTime);
 
       $request->merge($array);
+      
 
       $compra = Compra::create($array);
 

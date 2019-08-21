@@ -18,39 +18,20 @@ class VueloController extends Controller
      */
     public function index(Request $request)
     {
-		$query = 'id is not null';
-			$id_estudiante = null;
-			$id_instructor = null;
-			$vuelo_desde = null;
-			$vuelo_hasta = null;
-			$avion = null;
-		if(!is_null($request->get('opt'))){
-			if(!is_null($request->get('id_estudiante')))
-				$query .= " and id_estudiante = ".$request->get('id_estudiante');
-			$id_estudiante = $request->get('id_estudiante');
-			if(!is_null($request->get('id_instructor')))
-				$query .= " and id_instructor = ".$request->get('id_instructor');
-			$id_instructor = $request->get('id_instructor');
-			$vuelo_desde = $request->get('indate');
-			$vuelo_hasta = $request->get('endDate');
-			if(is_null($vuelo_desde) && !is_null($vuelo_hasta)){
-				$vuelo_desde = $vuelo_hasta;
-			}
-			if(!is_null($vuelo_desde) && is_null($vuelo_hasta)){
-				$vuelo_hasta = $vuelo_desde;
-			}
-			if(!is_null($vuelo_hasta) && !is_null($vuelo_desde))
-				$query .= str_replace('-','/'," and fecha_vuelo between '".$vuelo_desde."' and '".$vuelo_hasta."'");
-			
-			if(!is_null($request->get('avion')))
-				$query .= " and avion ilike '%".$request->get('avion')."%'";
-			$avion = $request->get('avion');
-		}
-		  
-      $vuelos = Vuelo::whereraw($query)->orderBy('fecha_vuelo', 'DESC')->paginate();
+      $id_estudiante = $request->get('id_estudiante');
+      $id_instructor = $request->get('id_instructor');
+      $fecha_vuelo = $request->get('fecha_vuelo');
+      $avion = $request->get('avion');
+
+      $vuelos = Vuelo::orderBy('fecha_vuelo', 'DESC')
+        ->id_estudiante($id_estudiante)
+        ->id_instructor($id_instructor)
+        ->fecha_vuelo($fecha_vuelo)
+        ->avion($avion)
+        ->paginate();
 
       return view('vuelos.index', compact('vuelos', ['id_estudiante',
-      'id_instructor', 'vuelo_desde', 'vuelo_hasta', 'avion']));
+      'id_instructor', 'fecha_vuelo', 'avion']));
     }
 
     /**
@@ -75,6 +56,7 @@ class VueloController extends Controller
     public function store(Request $request)
     {
       $array = $request->all();
+
       $array2 = explode(" ", $array['fecha_vuelo']);
       $array['fecha_vuelo'] = $array2[0];
 

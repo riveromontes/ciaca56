@@ -1,6 +1,6 @@
 <div class="form-group">
   {{ Form::label('id_estudiente', 'Estudiante (piloto)') }}
-  <select id="id_estudiante" name class="form-control">
+  <select id="id_estudiante" name="id_estudiante" class="form-control">
     <option value="null">Estudiante que voló</option>
     @foreach($estudiantes as $estudiante)
        <option value="{{$estudiante->id}}">{{$estudiante->nombre.' '.$estudiante->apellido}}</option>
@@ -10,7 +10,7 @@
 
 <div class="form-group">
   {{ Form::label('id_instructor', 'Instructor') }}
-  <select id="id_instructor" name class="form-control">
+  <select id="id_instructor" name="id_instructor" class="form-control">
     <option value="null">Instructor en el vuelo</option>
     @foreach($instructors as $instructor)
        <option value="{{$instructor->id}}">{{$instructor->nombre.' '.$instructor->apellido}}</option>

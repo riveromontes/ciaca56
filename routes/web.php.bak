@@ -175,9 +175,6 @@ Route::middleware(['auth'])->group(function(){
             ->middleware('permission:compras.edit');
 
 
-          Route::get('vuelosasa', 'HorascontrolController@index')->name('horascontrols.index')
-            ->middleware('permission:horascontrol.index');
-
           //7 rutas para vuelos
           //Route::post(RUTA)->name(NOMBRE_DE_RUTA)
             //->middleware(PERMISO);
@@ -203,5 +200,6 @@ Route::middleware(['auth'])->group(function(){
           Route::get('vuelos/{vuelo}/edit', 'VueloController@edit')->name('vuelos.edit')
             ->middleware('permission:vuelos.edit');
 
-
+            Route::get('horascontrols', 'HorascontrolController@index')->name('horascontrols.index')
+              ->middleware('permission:horascontrols.index');
 });
