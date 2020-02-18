@@ -114,7 +114,7 @@
 				</tr>
 			  </tfoot>
             </table>
-            {{ $vuelos->render() }}
+            {{ $vuelos->appends($_GET)->render() }}
           </div>
         </div>
       </div>
