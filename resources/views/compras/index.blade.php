@@ -99,7 +99,7 @@
                 @endforeach
               </tbody>
             </table>
-            {{ $compras->render() }}
+            {{ $compras->appends($_GET)->render() }}
           </div>
         </div>
       </div>
