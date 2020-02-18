@@ -47,7 +47,7 @@ class VueloController extends Controller
 			$avion = $request->get('avion');
 		}
 		  
-      $vuelos = Vuelo::whereraw($query)->orderBy('fecha_vuelo', 'DESC')->paginate();
+      $vuelos = Vuelo::whereraw($query)->orderBy('fecha_vuelo', 'ASC')->paginate();
 
       return view('vuelos.index', compact('vuelos', ['id_estudiante',
       'id_instructor', 'vuelo_desde', 'vuelo_hasta', 'avion']));
