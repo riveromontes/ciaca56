@@ -87,7 +87,7 @@
                 @endforeach
               </tbody>
             </table>
-            {{ $estudiantes->render() }}
+            {{ $estudiantes->appends($_GET)->render() }}
           </div>
         </div>
       </div>
