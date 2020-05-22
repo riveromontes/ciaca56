@@ -99,7 +99,6 @@
                 @endforeach
               </tbody>
             </table>
-
             {{ $compras->render() }}
           </div>
         </div>
