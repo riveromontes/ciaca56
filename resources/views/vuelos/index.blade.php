@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
   <div class="row justify-content-center">
+<<<<<<< HEAD
     <div class="col-md-12">
       <div class="card mb-3">
         <div class="card-body">
@@ -122,6 +123,7 @@
             </tfoot>
           </table>
           {{ $vuelos->appends($_GET)->render() }}
+
         </div>
       </div>
     </div>
@@ -139,3 +141,4 @@
   
 </script>
 @endsection
+

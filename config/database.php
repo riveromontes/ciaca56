@@ -62,6 +62,7 @@ return [
             'database' => env('DB_DATABASE', 'ciaca'),//ltrim($DATABASE_URL["path"], "/"),//env('DB_DATABASE', 'ciaca'),
             'username' => env('DB_USERNAME', 'postgres'),//$DATABASE_URL["user"],//env('DB_USERNAME', 'postgres'),
             'password' =>env('DB_PASSWORD', '12345'),//$DATABASE_URL["pass"],//env('DB_PASSWORD', '12345'),
+
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',

@@ -92,6 +92,7 @@
                 @endforeach
               </tbody>
             </table>
+
             {{ $instructors->render() }}
           </div>
         </div>
