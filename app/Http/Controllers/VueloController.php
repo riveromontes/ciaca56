@@ -51,7 +51,6 @@ class VueloController extends Controller
       $vuelosAll = Vuelo::all();
 
       return view('vuelos.index', compact('vuelos', 'vuelosAll', ['id_estudiante',
-
       'id_instructor', 'vuelo_desde', 'vuelo_hasta', 'avion']));
     }
 

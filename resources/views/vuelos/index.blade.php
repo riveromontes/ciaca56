@@ -122,7 +122,6 @@
             </tfoot>
           </table>
           {{ $vuelos->appends($_GET)->render() }}
-
         </div>
       </div>
     </div>
@@ -140,5 +139,3 @@
   
 </script>
 @endsection
-
-
